@@ -24,7 +24,7 @@ function App() {
       className="text-xl font-bold tracking-tight"
       onClick={() => setMenuOpen(false)}
     >
-      Sai<span className="text-cyan-400">.</span>
+      Sai kiran<span className="text-cyan-400">.</span>
     </a>
 
     {/* Desktop Navigation */}
