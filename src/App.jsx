@@ -24,7 +24,7 @@ function App() {
       className="text-xl font-bold tracking-tight"
       onClick={() => setMenuOpen(false)}
     >
-      Sai kiran<span className="text-cyan-400">.</span>
+      Sai Kiran Digital World<span className="text-cyan-400">.</span>
     </a>
 
     {/* Desktop Navigation */}
@@ -302,7 +302,7 @@ function App() {
 
             <div>
               <h3 className="font-semibold">
-                Sai Digital Studio
+                Sai Kiran Digital World
               </h3>
 
               <p className="mt-1 text-sm text-gray-500">
@@ -598,7 +598,7 @@ function App() {
 
       {/* Footer */}
       <footer className="border-t border-white/10 py-8 text-center text-sm text-gray-500">
-        © 2026 Sai Digital Studio. Built with React.
+        © 2026 Sai Kiran Digital World. Built with React.
       </footer>
 
     </div>
