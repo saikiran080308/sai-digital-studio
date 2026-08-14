@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { motion } from "framer-motion";
 import {
@@ -16,9 +15,258 @@ import {
 } from "lucide-react";
 
 /* =========================================================
-   YOUR ACTUAL C PROJECT CODE
+   PROJECT SOURCE CODES
    ========================================================= */
 
+// HTML Birthday Wishes Project
+const htmlSourceCode = String.raw`<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            padding: 40px;
+            animation: fadeIn 2s ease-in;
+        }
+
+        .birthday-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            padding: 50px 60px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            margin: 0 auto;
+            position: relative;
+            transform: scale(1);
+            transition: transform 0.3s ease;
+        }
+
+        .birthday-card:hover {
+            transform: scale(1.02);
+        }
+
+        .cake-emoji {
+            font-size: 80px;
+            display: block;
+            margin-bottom: 20px;
+            animation: bounce 2s infinite;
+        }
+
+        h1 {
+            color: #764ba2;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .birthday-text {
+            color: #667eea;
+            font-size: 1.2rem;
+            margin: 15px 0;
+            line-height: 1.6;
+        }
+
+        .name {
+            font-size: 2rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .message {
+            color: #555;
+            font-size: 1rem;
+            margin: 20px 0;
+            line-height: 1.8;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+        }
+
+        .balloons {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .balloon {
+            position: absolute;
+            font-size: 40px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(100vh) rotate(0deg); }
+            50% { transform: translateY(-10vh) rotate(180deg); }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.5); }
+        }
+
+        .sparkle {
+            position: absolute;
+            font-size: 20px;
+            animation: sparkle 1.5s ease-in-out infinite;
+        }
+
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            animation: confettiFall 3s linear infinite;
+        }
+
+        @keyframes confettiFall {
+            0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+        }
+
+        @media (max-width: 600px) {
+            .birthday-card {
+                padding: 30px 20px;
+                margin: 20px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .cake-emoji {
+                font-size: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Confetti Container -->
+    <div id="confettiContainer"></div>
+
+    <!-- Balloons -->
+    <div class="balloons">
+        <div class="balloon" style="left: 10%; animation-delay: 0s;">🎈</div>
+        <div class="balloon" style="left: 30%; animation-delay: 1s;">🎈</div>
+        <div class="balloon" style="left: 50%; animation-delay: 2s;">🎈</div>
+        <div class="balloon" style="left: 70%; animation-delay: 0.5s;">🎈</div>
+        <div class="balloon" style="left: 90%; animation-delay: 1.5s;">🎈</div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="birthday-card">
+            <span class="cake-emoji">🎂</span>
+            <h1>Happy Birthday!</h1>
+            <p class="birthday-text">🎉 Wishing you a day filled with</p>
+            <p class="birthday-text">joy, laughter, and endless happiness! 🎉</p>
+            <p class="name">🌟 Sai Kiran 🌟</p>
+            <p class="message">
+                May your day be as special as you are.<br>
+                Here's to another year of amazing memories!<br>
+                🥳 🎈 🎁
+            </p>
+            <button class="btn" onclick="celebrate()">
+                🎊 Celebrate!
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Confetti Effect
+        function createConfetti() {
+            const container = document.getElementById('confettiContainer');
+            const colors = ['#ff6b6b', '#ffd93d', '#6bcb77', '#4d96ff', '#ff6bff', '#ff9f43'];
+
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDelay = Math.random() * 3 + 's';
+                confetti.style.width = Math.random() * 8 + 4 + 'px';
+                confetti.style.height = Math.random() * 8 + 4 + 'px';
+                confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+                container.appendChild(confetti);
+            }
+        }
+
+        function celebrate() {
+            // Create more confetti on click
+            const container = document.getElementById('confettiContainer');
+            const colors = ['#ff6b6b', '#ffd93d', '#6bcb77', '#4d96ff', '#ff6bff', '#ff9f43', '#ff4757', '#2ed573'];
+
+            for (let i = 0; i < 30; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDelay = Math.random() * 2 + 's';
+                confetti.style.width = Math.random() * 10 + 5 + 'px';
+                confetti.style.height = Math.random() * 10 + 5 + 'px';
+                confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+                container.appendChild(confetti);
+            }
+
+            // Show alert with birthday message
+            alert('🎉🎂 Happy Birthday! Wishing you all the best! 🎂🎉');
+        }
+
+        // Initialize confetti
+        createConfetti();
+    </script>
+</body>
+</html>`;
+
+// C Student Management System
 const cSourceCode = String.raw`#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -285,6 +533,7 @@ int main() {
     return 0;
 }`;
 
+// Python Expense Tracker
 const expenseSourceCode = String.raw`import json
 import os
 
@@ -472,13 +721,13 @@ def main():
 if __name__ == "__main__":
     main()`;
 
-
 /* =========================================================
    MAIN APP
    ========================================================= */
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [showHTMLCode, setShowHTMLCode] = useState(false);
   const [showCCode, setShowCCode] = useState(false);
   const [showExpenseCode, setShowExpenseCode] = useState(false);
 
@@ -571,7 +820,6 @@ function App() {
 
       </nav>
 
-
       {/* ================= HERO ================= */}
 
       <main
@@ -620,7 +868,6 @@ function App() {
 
             </motion.div>
 
-
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -644,7 +891,6 @@ function App() {
 
             </motion.h1>
 
-
             <motion.p
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
@@ -655,7 +901,6 @@ function App() {
               interactive React applications and digital experiences that
               combine clean engineering with strong visual design.
             </motion.p>
-
 
             <motion.div
               initial={{ opacity: 0, y: 25 }}
@@ -677,7 +922,6 @@ function App() {
 
               </a>
 
-
               <a
                 href="#contact"
                 className="rounded-full border border-white/10 bg-white/[0.03] px-7 py-3.5 font-semibold transition hover:-translate-y-1 hover:border-cyan-400/30"
@@ -686,7 +930,6 @@ function App() {
               </a>
 
             </motion.div>
-
 
             <div className="mt-16 flex flex-wrap items-center gap-x-6 gap-y-3 text-xs uppercase tracking-[0.2em] text-gray-600">
 
@@ -707,7 +950,6 @@ function App() {
         </section>
 
       </main>
-
 
       {/* ================= ABOUT ================= */}
 
@@ -749,7 +991,6 @@ function App() {
 
             </div>
 
-
             <motion.div
               whileHover={{ y: -8 }}
               className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 backdrop-blur-xl"
@@ -774,7 +1015,6 @@ function App() {
                 </div>
 
               </div>
-
 
               <div className="grid grid-cols-2 gap-4">
 
@@ -808,7 +1048,6 @@ function App() {
 
       </section>
 
-
       {/* ================= SERVICES ================= */}
 
       <section
@@ -831,7 +1070,6 @@ function App() {
             </span>
 
           </h2>
-
 
           <div className="mt-16 grid gap-6 md:grid-cols-3">
 
@@ -859,7 +1097,6 @@ function App() {
 
       </section>
 
-
       {/* ================= SKILLS ================= */}
 
       <section
@@ -873,7 +1110,6 @@ function App() {
             Skills & Technologies
           </p>
 
-
           <h2 className="max-w-3xl text-4xl font-bold sm:text-5xl md:text-6xl">
 
             Tools I use to
@@ -883,7 +1119,6 @@ function App() {
             </span>
 
           </h2>
-
 
           <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
 
@@ -911,7 +1146,6 @@ function App() {
 
                 </div>
 
-
                 <h3 className="mt-7 text-lg font-semibold">
                   {skill.name}
                 </h3>
@@ -919,7 +1153,6 @@ function App() {
                 <p className="mt-2 text-sm text-gray-500">
                   {skill.type}
                 </p>
-
 
                 <div className="mt-6 h-px w-full bg-white/10">
 
@@ -937,7 +1170,6 @@ function App() {
 
       </section>
 
-
       {/* ================= PROJECTS ================= */}
 
       <section
@@ -951,7 +1183,6 @@ function App() {
             My Projects
           </p>
 
-
           <h2 className="text-4xl font-bold sm:text-5xl md:text-6xl">
 
             Things I've
@@ -962,25 +1193,24 @@ function App() {
 
           </h2>
 
-
           <div className="mt-16 grid gap-6 lg:grid-cols-3">
 
-            {/* PROJECT 1 */}
+            {/* PROJECT 1 - HTML Birthday Wishes */}
 
             <ProjectCard
               number="01"
               title="Birthday Wishes"
-              description="A beautiful interactive birthday wishes website created using HTML, CSS and JavaScript."
+              description="A beautiful interactive birthday wishes website created using HTML, CSS and JavaScript with confetti and animations."
               tags={[
                 "HTML",
                 "CSS",
                 "JavaScript",
               ]}
               link="https://magnetic-silver-jhsbx3lg.edgeone.dev/"
+              onViewCode={() => setShowHTMLCode(true)}
             />
 
-
-            {/* PROJECT 2 */}
+            {/* PROJECT 2 - C Student Management */}
 
             <ProjectCard
               number="02"
@@ -994,8 +1224,7 @@ function App() {
               onViewCode={() => setShowCCode(true)}
             />
 
-
-            {/* PROJECT 3 */}
+            {/* PROJECT 3 - Python Expense Tracker */}
 
             <ProjectCard
               number="03"
@@ -1014,7 +1243,6 @@ function App() {
         </div>
 
       </section>
-
 
       {/* ================= CONTACT ================= */}
 
@@ -1045,12 +1273,10 @@ function App() {
 
                 </h2>
 
-
                 <p className="mt-6 max-w-xl text-lg leading-8 text-gray-400">
                   Have an idea, project or website in mind?
                   Let's turn it into a modern digital experience.
                 </p>
-
 
                 <div className="mt-10 flex flex-col gap-4">
 
@@ -1068,7 +1294,6 @@ function App() {
 
                     </span>
 
-
                     <span>
 
                       <span className="block text-xs text-gray-600">
@@ -1083,7 +1308,6 @@ function App() {
 
                   </a>
 
-
                   <a
                     href="tel:9059457459"
                     className="flex w-fit items-center gap-4 text-gray-300 hover:text-white"
@@ -1097,7 +1321,6 @@ function App() {
                       />
 
                     </span>
-
 
                     <span>
 
@@ -1116,7 +1339,6 @@ function App() {
                 </div>
 
               </div>
-
 
               <a
                 href="mailto:nnsaikiran08@gmail.com"
@@ -1140,20 +1362,28 @@ function App() {
 
       </section>
 
-
       {/* ================= FOOTER ================= */}
 
       <footer className="border-t border-white/10 py-8 text-center text-sm text-gray-500">
         © 2026 Sai Kiran Digital World. Built with React.
       </footer>
 
-
       {/* =====================================================
-          C CODE POPUP
+          CODE MODALS
           ===================================================== */}
 
+      {showHTMLCode && (
+        <CodeModal
+          code={htmlSourceCode}
+          title="Birthday Wishes"
+          language="HTML"
+          filename="birthday.html"
+          onClose={() => setShowHTMLCode(false)}
+        />
+      )}
+
       {showCCode && (
-        <CCodeModal
+        <CodeModal
           code={cSourceCode}
           title="Student Record Management System"
           language="C"
@@ -1163,7 +1393,7 @@ function App() {
       )}
 
       {showExpenseCode && (
-        <CCodeModal
+        <CodeModal
           code={expenseSourceCode}
           title="Personal Expense Tracker"
           language="Python"
@@ -1175,7 +1405,6 @@ function App() {
     </div>
   );
 }
-
 
 /* =========================================================
    STAT CARD
@@ -1196,7 +1425,6 @@ function StatCard({ number, text }) {
     </div>
   );
 }
-
 
 /* =========================================================
    SERVICE CARD
@@ -1229,7 +1457,6 @@ function ServiceCard({
   );
 }
 
-
 /* =========================================================
    PROJECT CARD
    ========================================================= */
@@ -1254,7 +1481,6 @@ function ProjectCard({
         {number}
       </div>
 
-
       <div className="relative">
 
         {/* Browser Preview */}
@@ -1270,7 +1496,6 @@ function ProjectCard({
             <span className="h-2.5 w-2.5 rounded-full bg-green-400/70" />
 
           </div>
-
 
           <div className="flex h-[calc(100%-45px)] items-center justify-center">
 
@@ -1296,20 +1521,17 @@ function ProjectCard({
 
         </div>
 
-
         {/* Project Title */}
 
         <h3 className="text-2xl font-semibold">
           {title}
         </h3>
 
-
         {/* Description */}
 
         <p className="mt-4 leading-7 text-gray-400">
           {description}
         </p>
-
 
         {/* Tags */}
 
@@ -1325,7 +1547,6 @@ function ProjectCard({
           ))}
 
         </div>
-
 
         {/* Buttons */}
 
@@ -1344,7 +1565,6 @@ function ProjectCard({
 
             </a>
           )}
-
 
           {onViewCode && (
             <button
@@ -1366,12 +1586,11 @@ function ProjectCard({
   );
 }
 
-
 /* =========================================================
-   C CODE MODAL
+   CODE MODAL
    ========================================================= */
 
-function CCodeModal({
+function CodeModal({
   code,
   title = "Source Code",
   language = "Code",
@@ -1382,25 +1601,28 @@ function CCodeModal({
 
   const lines = code.split("\n");
 
-
   const copyCode = async () => {
-
     try {
-
       await navigator.clipboard.writeText(code);
-
       setCopied(true);
-
       setTimeout(() => {
         setCopied(false);
       }, 2000);
-
     } catch (error) {
       console.error("Copy failed:", error);
     }
-
   };
 
+  // Get language icon
+  const getLanguageIcon = () => {
+    if (language === "Python") return "Py";
+    if (language === "HTML") return "</>";
+    if (language === "C") return "C";
+    if (language === "CSS") return "#";
+    if (language === "JavaScript") return "JS";
+    if (language === "React") return "⚛";
+    return language.charAt(0);
+  };
 
   return (
     <div
@@ -1426,12 +1648,11 @@ function CCodeModal({
         className="relative flex max-h-[90vh] w-full max-w-6xl flex-col overflow-hidden rounded-[28px] border border-cyan-400/20 bg-[#080b10] shadow-[0_0_80px_rgba(34,211,238,0.12)]"
       >
 
-        {/* Glow */}
+        {/* Glow Effects */}
 
         <div className="pointer-events-none absolute -left-32 -top-32 h-72 w-72 rounded-full bg-cyan-400/10 blur-[100px]" />
 
         <div className="pointer-events-none absolute -bottom-32 -right-32 h-72 w-72 rounded-full bg-blue-500/10 blur-[100px]" />
-
 
         {/* Header */}
 
@@ -1439,27 +1660,25 @@ function CCodeModal({
 
           <div className="flex items-center gap-4">
 
-            {/* C Icon */}
+            {/* Language Icon */}
 
             <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-cyan-400/20 bg-cyan-400/10 font-bold text-cyan-400">
-              {language === "Python" ? "Py" : language}
+              {getLanguageIcon()}
             </div>
-
 
             <div>
 
               <div className="flex items-center gap-2">
 
                 <h3 className="font-semibold text-white">
-                  Student Record Management System
+                  {title}
                 </h3>
 
                 <span className="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-2 py-0.5 text-[10px] uppercase tracking-wider text-cyan-400">
-                  C
+                  {language}
                 </span>
 
               </div>
-
 
               <p className="mt-1 text-xs text-gray-500">
                 {filename}
@@ -1469,8 +1688,7 @@ function CCodeModal({
 
           </div>
 
-
-          {/* Close */}
+          {/* Close Button */}
 
           <button
             onClick={onClose}
@@ -1480,7 +1698,6 @@ function CCodeModal({
           </button>
 
         </div>
-
 
         {/* Browser Bar */}
 
@@ -1492,13 +1709,11 @@ function CCodeModal({
 
           <span className="h-3 w-3 rounded-full bg-green-400/70" />
 
-
           <div className="ml-4 rounded-lg border border-white/5 bg-white/[0.03] px-3 py-1 text-xs text-gray-600">
-            StudentRecordManagementSystem.c
+            {filename}
           </div>
 
         </div>
-
 
         {/* Code Area */}
 
@@ -1520,7 +1735,6 @@ function CCodeModal({
 
               </div>
 
-
               {/* Code */}
 
               <pre className="font-mono text-[13px] leading-6">
@@ -1528,7 +1742,7 @@ function CCodeModal({
                 <code className="text-gray-300">
                   {lines.map((line, index) => (
                     <div key={index}>
-                      <CodeLine line={line} />
+                      <CodeLine line={line} language={language} />
                     </div>
                   ))}
                 </code>
@@ -1541,7 +1755,6 @@ function CCodeModal({
 
         </div>
 
-
         {/* Bottom Bar */}
 
         <div className="flex items-center justify-between border-t border-white/10 bg-white/[0.03] px-5 py-3">
@@ -1550,7 +1763,7 @@ function CCodeModal({
 
             <span className="h-2 w-2 rounded-full bg-cyan-400" />
 
-            C Source Code
+            {language} Source Code
 
             <span className="text-gray-700">
               •
@@ -1559,7 +1772,6 @@ function CCodeModal({
             {lines.length} lines
 
           </div>
-
 
           <button
             onClick={copyCode}
@@ -1588,20 +1800,21 @@ function CCodeModal({
   );
 }
 
-
 /* =========================================================
-   SIMPLE C SYNTAX HIGHLIGHTING
+   SYNTAX HIGHLIGHTING
    ========================================================= */
 
-function CodeLine({ line }) {
+function CodeLine({ line, language }) {
 
   const trimmed = line.trim();
 
-
+  // Comments
   if (
     trimmed.startsWith("//") ||
     trimmed.startsWith("/*") ||
-    trimmed.startsWith("*")
+    trimmed.startsWith("*") ||
+    (language === "Python" && trimmed.startsWith("#") && !trimmed.startsWith("#include") && !trimmed.startsWith("#define")) ||
+    (language === "HTML" && trimmed.startsWith("<!--"))
   ) {
     return (
       <span className="text-gray-600">
@@ -1610,12 +1823,43 @@ function CodeLine({ line }) {
     );
   }
 
+  // HTML Tags
+  if (language === "HTML") {
+    if (trimmed.startsWith("<") && trimmed.includes(">")) {
+      return (
+        <span className="text-blue-300">
+          {line || " "}
+        </span>
+      );
+    }
+    if (trimmed.includes("class=") || trimmed.includes("id=") || trimmed.includes("style=")) {
+      return (
+        <span className="text-cyan-300">
+          {line || " "}
+        </span>
+      );
+    }
+  }
 
+  // CSS Properties
+  if (language === "CSS") {
+    if (trimmed.includes(":")) {
+      return (
+        <span className="text-purple-300">
+          {line || " "}
+        </span>
+      );
+    }
+  }
+
+  // Imports/Includes
   if (
     trimmed.startsWith("#include") ||
     trimmed.startsWith("#define") ||
     trimmed.startsWith("import ") ||
-    trimmed.startsWith("from ")
+    trimmed.startsWith("from ") ||
+    (language === "HTML" && trimmed.startsWith("<style>")) ||
+    (language === "HTML" && trimmed.startsWith("<script>"))
   ) {
     return (
       <span className="text-purple-400">
@@ -1624,12 +1868,14 @@ function CodeLine({ line }) {
     );
   }
 
-
+  // Print/Input functions
   if (
     trimmed.startsWith("printf") ||
     trimmed.includes("printf(") ||
     trimmed.startsWith("print(") ||
-    trimmed.startsWith("input(")
+    trimmed.startsWith("input(") ||
+    trimmed.startsWith("alert(") ||
+    trimmed.startsWith("console.log")
   ) {
     return (
       <span className="text-cyan-300">
@@ -1638,7 +1884,7 @@ function CodeLine({ line }) {
     );
   }
 
-
+  // Function/Class definitions
   if (
     trimmed.startsWith("void ") ||
     trimmed.startsWith("int main") ||
@@ -1647,7 +1893,9 @@ function CodeLine({ line }) {
     trimmed.startsWith("FILE ") ||
     trimmed.startsWith("struct ") ||
     trimmed.startsWith("def ") ||
-    trimmed.startsWith("class ")
+    trimmed.startsWith("class ") ||
+    trimmed.startsWith("function ") ||
+    trimmed.startsWith("const ") && trimmed.includes("=")
   ) {
     return (
       <span className="text-blue-300">
@@ -1656,7 +1904,7 @@ function CodeLine({ line }) {
     );
   }
 
-
+  // Control flow keywords
   if (
     trimmed.startsWith("return") ||
     trimmed.startsWith("break") ||
@@ -1666,7 +1914,11 @@ function CodeLine({ line }) {
     trimmed.startsWith("elif ") ||
     trimmed.startsWith("else:") ||
     trimmed.startsWith("for ") ||
-    trimmed.startsWith("while ")
+    trimmed.startsWith("while ") ||
+    trimmed.startsWith("switch") ||
+    trimmed.startsWith("try") ||
+    trimmed.startsWith("catch") ||
+    trimmed.startsWith("finally")
   ) {
     return (
       <span className="text-purple-300">
@@ -1675,7 +1927,7 @@ function CodeLine({ line }) {
     );
   }
 
-
+  // Default
   return (
     <span className="text-gray-300">
       {line || " "}
@@ -1683,5 +1935,4 @@ function CodeLine({ line }) {
   );
 }
 
-  
 export default App;
