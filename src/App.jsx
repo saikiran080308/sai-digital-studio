@@ -1494,7 +1494,7 @@ function CCodeModal({
 
 
           <div className="ml-4 rounded-lg border border-white/5 bg-white/[0.03] px-3 py-1 text-xs text-gray-600">
-            expensetracker.py
+            StudentRecordManagementSystem.c
           </div>
 
         </div>
@@ -1550,7 +1550,7 @@ function CCodeModal({
 
             <span className="h-2 w-2 rounded-full bg-cyan-400" />
 
-            python Source Code
+            C Source Code
 
             <span className="text-gray-700">
               •
