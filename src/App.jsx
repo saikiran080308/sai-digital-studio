@@ -991,6 +991,16 @@ function App() {
 
             </div>
 
+            <div className="relative mx-auto h-72 w-72">
+  <div className="absolute inset-0 rounded-full bg-cyan-400/20 blur-3xl" />
+
+  <img
+    src="/sai kiran.png"
+    alt="Sai Kiran"
+    className="relative h-full w-full rounded-full border-2 border-cyan-400/40 object-cover shadow-[0_0_60px_rgba(34,211,238,0.18)]"
+  />
+</div>
+
             <motion.div
               whileHover={{ y: -8 }}
               className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 backdrop-blur-xl"
