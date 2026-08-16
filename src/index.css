@@ -9,3 +9,10 @@ body {
   min-width: 320px;
   background: #080808;
 }
+
+.profile-image {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+}
