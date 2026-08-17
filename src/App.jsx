@@ -1034,7 +1034,7 @@ function App() {
                 />
 
                 <StatCard
-                  number="03"
+                  number="04"
                   text="Projects"
                 />
 
@@ -1081,7 +1081,7 @@ function App() {
 
           </h2>
 
-          <div className="mt-16 grid gap-6 md:grid-cols-3">
+          <div className="mt-16 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
 
             <ServiceCard
               icon={<Globe size={25} />}
@@ -1247,6 +1247,21 @@ function App() {
               ]}
               onViewCode={() => setShowExpenseCode(true)}
             />
+
+            {/* PROJECT 4 - Sinusitis Risk Predictor */}
+
+<ProjectCard
+  number="04"
+  title="Sinusitis Risk Predictor"
+  description="An interactive educational machine-learning web application demonstrating an offline decision-tree model through a browser-based prediction interface."
+  tags={[
+    "React",
+    "JavaScript",
+    "Machine Learning",
+    "Decision Tree",
+  ]}
+  link="https://xerothermic-magenta-m8tw1ciokx.edgeone.app/"
+/>
 
           </div>
 
